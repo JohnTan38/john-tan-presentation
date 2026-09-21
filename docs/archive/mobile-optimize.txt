@@ -1,0 +1,51 @@
+adding mobile media query block to index.html
+Now I also need to add `viewport-fit=cover` to the meta tag for iOS safe areas, and fix the hero slide HTML since the photo needs to be inside the hero-layout for absolute positioning to work properly. Let me check the hero layout structure and fix the `#slide-1` padding approach — the inner padding is set directly on `#slide-1` not a wrapper div, so the override works differently.
+updated viewport meta tag with viewport-fit property
+Now let me verify the hero slide — slide 1 uses `#slide-1 { padding: 0 80px; }` at the slide level directly (not a wrapper), and the hero-layout sits inside it. The photo is `position: relative` in the flex row. On mobile I'm making it `position: absolute` — I need to make sure `#slide-1` has `position: relative` (it already does via `.slide { position: absolute }`). Let me also verify the inner div override is needed for slides 2–7 by checking if those slides use inner divs with inline padding.
+
+Looking back at the HTML, slides 2–7 have an inner `<div style="padding:...">` wrapper. The media query override with `!important` on those inner divs should work. But the selector `#slide-2 > div` etc. needs to target those specific inner divs. Let me verify this is correct — slide 2's inner div is a direct child of `#slide-2`, so `#slide-2 > div` is correct.
+
+However, slide 1 sets padding on `#slide-1` itself (no inner wrapper), so the `#slide-1 { padding: 0 20px; }` rule in the media query correctly overrides it.
+
+Let me also make the `#slide-1` hero layout `position: relative` to anchor the absolutely-positioned photo:
+read CSS styling section from index.html
+The media query block looks correct. Now let me also fix one issue — slide 3's inner `<div>` has an inline style that includes `padding:55px 80px`, which the `#slide-3 > div { padding: 40px 20px !important; }` will override. But slide 3 also has a secondary `<div>` wrapper and a `.bg-glow` div. Let me verify the structure is what I expect:
+
+The HTML shows slide 3 has:
+1. `<div class="bg-dots">` 
+2. `<div class="bg-glow" style="...">` — inline div (not the content wrapper)
+3. `<div class="slide-corner">`
+4. `<div style="padding:55px 80px;...">` — this is the content wrapper (direct child of `#slide-3`)
+
+The selector `#slide-3 > div` would match ALL direct-child divs including `.bg-dots` and `.bg-glow`. That's a problem — it would set `padding` on those decorative divs too (harmless since they're `position: absolute` with `pointer-events: none`, but still messy). Let me use a more specific approach targeting the inline-styled content wrapper divs:
+updated CSS padding overrides for slides 2-7
+Wait — slide 2 uses `<div style="padding:55px 80px;...">` as a direct child, so `#slide-2 > div[style]` works. But slide 2 also has `<div class="bg-dots">` and `<div class="bg-glow">` which don't have `style` attributes (they just have classes), so `div[style]` correctly targets only the content wrapper. Good.
+
+For slides 3–7, the inline style on the content wrapper includes "padding", so `div[style*="padding"]` accurately targets only those. The `.bg-glow` on slide 3 has an inline style too but let me check:
+
+Looking at line 496: `<div class="bg-glow" style="position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:...">` — this has an inline style but does NOT contain "padding", so `div[style*="padding"]` will not match it. 
+
+The implementation looks solid. Let me mark the todo complete:
+Done. Here's a summary of what was added to `index.html`:
+
+**A single `@media (max-width: 768px)` block** inserted before `</style>`, covering:
+
+| Area | Change |
+|---|---|
+| Viewport meta | Added `viewport-fit=cover` for iOS safe area |
+| All slides | Padding reduced from `80px` → `20px` horizontal |
+| Slides | `overflow-y: auto` so content can scroll if it overflows |
+| Hero layout | Stacks vertically, photo shrinks to `100px` and pins top-right |
+| Hero name | `clamp(52px, 14vw, 80px)` instead of min 80px |
+| Pillar grid | `1fr` (was 3-column) |
+| Achievements grid | `1fr` (was 2-column) |
+| Skills layout | `1fr` (was 2-column) |
+| Education grid | `1fr` (was 2-column) |
+| Impact layout | `1fr`, image hidden (saves space) |
+| Timeline | Items stack vertically, descriptions hidden, `min-width` removed |
+| Font sizes | All oversized values (`72px`, `52px`, `36px` etc.) scaled down |
+| Closing slide | Contact CTA stacks vertically |
+| Navigation | Smaller buttons, respects iOS home bar safe area |
+| Decorative elements | `diag-accent` diamonds hidden (prevent overflow) |
+
+Desktop layout is completely unchanged.

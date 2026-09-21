@@ -1,0 +1,25 @@
+Assistant program facilitator
+<company-overview>
+365 Cancer Prevention Society is an IPC-approved non-profit in Singapore focused on cancer prevention through education, healthy lifestyle promotion, and patient support via counseling, wellness programs, and hospital visitations. Services are funded by public donations</company-overview>
+Job Summary
+Care for cancer patients and support Social Service Centre (SSC) activities by facilitating smooth operations, engaging clients, coordinating volunteers, and providing administrative assistance aligned with 365CPS’s mission.
+
+<responsibilities>
+Encourage and motivate clients to actively participate in SSC activities to support their health and social engagement
+Reach out to new clients, including referrals and self-registered cases, to expand SSC support services
+Assist in organizing and supervising SSC activities to ensure smooth and effective delivery
+Coordinate volunteer involvement in SSC activities to optimize support and resource use
+Engage with activity facilitators and participants to collect feedback for continuous improvement
+Publicize SSC activities to raise awareness and increase community participation
+Recommend and implement improvements to SSC activities based on feedback and observations
+Follow up with absent clients to understand their needs and provide tailored support
+Prepare and submit weekly reports on client activity and SSC operations to inform management decisions</responsibilities>
+<Required competencies and certifications>
+Minimum 2 years of experience, preferably in event organizing, to effectively manage SSC activities
+Basic proficiency in Microsoft Office Excel, Word, and PowerPoint to support administrative tasks</Required competencies and certifications>
+
+<vercel-profile-app>https://john-tan-presentation.vercel.app/</vercel-profile-app><design-brief><specific-to-program-facilitator>visually appealing, impressive first impression profile pages, customized to focus on assistant program facilitator role at 365 cancer prevention</specific-to-program-facilitator><user-interface>modern sleek interface of modern frontend UI developments seamless transitions with framer motion, intuitive search function</user-interface><transferable-skills>directly transferable skills and professional experience</transferable-skills><education-credentials>emphasize current enrolment in graduate diploma course at SUSS - commitment to social service and social work</education-credentials></design-brief><plan>plan, design, implement best in class code for visually stunning and polished professional profile to secure job, use relevant tools and or function calling, relevant MCP for latest Next-JS, codex documentation</plan><goal>UI full test suite 100% pass, smoke tests 100%, use alternative if sandbox mode no access, specs review, code quality review, ship production-ready code for deployment vercel</goal>
+<maintain-code-quality>Keep the codebase itself clean: Claude follows patterns and conventions that already exist in your codebase.
+Give Claude a way to verify its own work: Encode what good looks like for you and your team with skills.
+Make docs easy to reach: Frameworks and libraries docs have up-to-date best practices.
+Use a second agent for code reviews: A reviewer with fresh context is less biased and not influenced by the main agent’s reasoning. You can use the built-in `/code-review` skill or Code Review for Github. Loops that write code need loops that check it — see how Anthropic secures an AI-native SDLC.</maintain-code-quality><claude-managed-agents>https://platform.claude.com/docs/en/managed-agents/overview</claude-managed-agents>

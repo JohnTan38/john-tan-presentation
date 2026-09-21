@@ -1,0 +1,40 @@
+<care-corner-web>https://www.carecorner.org.sg/<care-corner-web>
+<job-url>https://carecorner.wd102.myworkdayjobs.com/en-US/CCS/details/Associate--Programme---Active-Ageing-Centre_JR-00199</job-url>
+<job-responsibilities>JOB PURPOSE
+The Associate (Programme) is a key member of the Active Ageing Centre (AAC) team, supporting the planning and delivery of programs and initiatives that promote active ageing and enhance the wellbeing of seniors. Reporting to the Centre Supervisor, the Associate will assist with day-to-day operations, outreach activities, and engagement with seniors to foster a vibrant and inclusive community.
+
+ROLES & RESPONSIBILITIES
+
+Programme Support:
+
+Assist in the execution of programmes and activities aligned with the five (5) domains of the Active Ageing Programme (AAP): Physical, Intellectual, Emotional, Social, and Vocational
+Set up, manage, and facilitate daily activities, workshops, and events for seniors
+Gather feedback from seniors on programme participation and suggest improvement.
+Community Outreach and Engagement:
+
+Conduct door-knocking and outreach activities to identify and connect with seniors in the community Support efforts to engage isolated or vulnerable seniors and encourage their participation in AAC activities
+Build rapport with seniors to foster trust and understanding of their needs.
+Volunteer and Partner Engagement:
+
+Assist in coordinating volunteer involvement in activities and programmes
+Provide logistical and administrative support for collaborations with community partners and stakeholders.
+Administrative Support:
+
+Maintain accurate attendance records, program schedules, and activity reports
+Assist in preparing materials and logistics for programs and events
+Support data entry and filing to ensure proper documentation for reporting purposes.
+Centre Operations:
+
+Help ensure the smooth running of the AAC, including managing resources and setting up for daily activities
+Assist in maintaining a safe, clean, and welcoming environment for seniors and visitors.
+QUALIFICATIONS
+Minimum GCE 'O' Level or Diploma in a relevant discipline (e.g., Social Work, Community Development, Psychology, or Gerontology)
+REQUIREMENTS
+
+Strong interpersonal and communication skills to engage with seniors and volunteers. Prior experience in community engagement or working with seniors is advantageous but not mandatory.
+Enthusiastic, empathetic, and patient in interacting with diverse senior populations
+Basic organizational and time management skills
+Proficiency in Microsoft Office and willingness to learn other systems as needed
+Ability to work collaboratively within a team environment
+Ability to communicate in English and at least one local language/dialect to interact effectively with seniors<job-responsibilities>
+<main-objective-professional-profile>plan, design, visual impact great first experience landing page, impressive, job focus profile web pages for care corner program associate; leverage on current education certification credentials social service, previous management skills (cross functional stakeholders management, time management new products initiatives) and software development (detailed documentation, full SDLC, implementation enterprise grade applications) project skills as directly transferable to target job at care corner</main-objective-professional-profile><specs>specs review, full test suite 100%, seamless transitions, modern sleek glass morphism web design patterns and elements, intuitive search function, light color gradients consistent with care corner corporate colors theme, care corner corporate logo top right corner landing page, lint typescript tests, smoke tests 100%, user interfaces and all surfaces playwright tests 100%, npm build, run scripts, code quality review, ship production-ready code, deployment vercel</specs><to-do>fully functional profile website ready for hiring manager review, secure first interview</to-do>

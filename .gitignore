@@ -1,0 +1,22 @@
+node_modules/
+.next/
+dist/
+coverage/
+playwright-report/
+test-results/
+.env*.local
+*.local
+npm-debug.log*
+output/
+.playwright-cli/
+.playwright-mcp/
+.worktrees/
+tmp/
+rag-design/
+rag-upgrade/
+tsconfig.tsbuildinfo
+
+# Ignore .vercel cache/build output but allow project.json and README.txt
+.vercel/*
+!.vercel/project.json
+!.vercel/README.txt
