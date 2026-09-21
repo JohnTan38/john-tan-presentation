@@ -32,9 +32,6 @@ export function ContactLinks({ context = 'hero' }: { readonly context?: 'hero' |
       >
         <WhatsAppIcon /> WhatsApp
       </a>
-      <a className="text-link" href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="View John Tan on LinkedIn">
-        LinkedIn <ArrowIcon />
-      </a>
       <a
         className="text-link text-link--document"
         href={profile.resume}

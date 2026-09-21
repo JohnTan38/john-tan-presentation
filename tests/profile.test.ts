@@ -95,6 +95,6 @@ describe('Selarang Halfway House Case Manager profile content', () => {
     for (const val of ['Hope', 'Dignity', 'Second Chances', 'Empathy', 'Integrity']) {
       expect(publishedContent).toContain(val)
     }
-    expect(publishedContent).not.toMatch(/Care Corner|Jojo|oncology|365 Cancer Prevention Society/i)
+    expect(publishedContent).not.toMatch(/Care Corner|Jojo|oncology|365 Cancer Prevention Society|LinkedIn/i)
   })
 })

@@ -89,6 +89,8 @@ describe('Selarang Halfway House Case Manager profile', () => {
       'href',
       '/docs/John_Tan_Cover_Letter_Case_Manager_Selarang_Halfway_House.pdf',
     )
+    expect(screen.queryByRole('link', { name: /linkedin/i })).not.toBeInTheDocument()
+    expect(screen.queryByText(/linkedin/i)).not.toBeInTheDocument()
   })
 
   it('opens and closes the mobile navigation by selection and Escape', async () => {

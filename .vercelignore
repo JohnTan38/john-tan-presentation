@@ -1,0 +1,23 @@
+# Dependencies & build output
+node_modules
+.next
+dist
+coverage
+playwright-report
+test-results
+
+# Large local sub-projects & worktrees
+rag-upgrade
+rag-design
+.worktrees
+tmp
+output
+
+# Test artifacts and tooling
+.playwright-cli
+.playwright-mcp
+tests
+e2e
+
+# Documentation and source materials
+docs
