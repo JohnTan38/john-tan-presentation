@@ -19,5 +19,8 @@ output
 tests
 e2e
 
-# Documentation and source materials
-docs
+# Documentation and source materials (root directory only)
+/docs/
+!public/docs/
+!public/docs/**
+

@@ -130,8 +130,8 @@ def build_resume(path: Path):
         p("Guiding Reintegration with Empathy, Structure, and Purpose.", "headline"),
         p(
             "Singapore  |  +65 9889 1383  |  sxk2929@gmail.com  |  "
-            '<a href="https://john-tan-presentation.vercel.app" '
-            'color="#D97706">john-tan-presentation.vercel.app</a>', "contact"
+            '<a href="https://john-tan-profile.vercel.app" '
+            'color="#D97706">john-tan-profile.vercel.app</a>', "contact"
         ),
         p("PROFESSIONAL SUMMARY", "section"),
         p(

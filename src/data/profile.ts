@@ -69,7 +69,7 @@ export const profile = {
   phoneDisplay: '+65 9889 1383',
   phoneHref: '+6598891383',
   whatsappHref: 'https://wa.me/6598891383',
-  website: 'https://john-tan-presentation.vercel.app',
+  website: 'https://john-tan-profile.vercel.app',
   resume: '/docs/John_Tan_Resume_Case_Manager_Selarang_Halfway_House.pdf',
   coverLetter: '/docs/John_Tan_Cover_Letter_Case_Manager_Selarang_Halfway_House.pdf',
   headline: 'Guiding Reintegration with Empathy, Structure, and Purpose.',

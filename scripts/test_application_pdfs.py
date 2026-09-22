@@ -46,8 +46,8 @@ class ApplicationPdfContract(unittest.TestCase):
     def test_resume_links_to_deployed_profile(self):
         name = "John_Tan_Resume_Case_Manager_Selarang_Halfway_House.pdf"
         text = extract(name)
-        self.assertIn("john-tan-presentation.vercel.app", text)
-        self.assertIn("https://john-tan-presentation.vercel.app", extract_links(name))
+        self.assertIn("john-tan-profile.vercel.app", text)
+        self.assertIn("https://john-tan-profile.vercel.app", extract_links(name))
 
     def test_cover_letter_contains_selarang_halfway_house_and_social_work_focus(self):
         text = extract("John_Tan_Cover_Letter_Case_Manager_Selarang_Halfway_House.pdf")

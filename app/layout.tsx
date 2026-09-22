@@ -3,7 +3,7 @@ import { Edu_QLD_Beginner, Urbanist } from 'next/font/google'
 import type { ReactNode } from 'react'
 import './globals.css'
 
-const siteUrl = 'https://john-tan-presentation.vercel.app'
+const siteUrl = 'https://john-tan-profile.vercel.app'
 
 const urbanist = Urbanist({
   subsets: ['latin'],

@@ -61,7 +61,7 @@ export default function Page() {
             rel="noreferrer"
             className="site-footer__link"
           >
-            john-tan-presentation.vercel.app
+            {profile.website.replace(/^https?:\/\//, '')}
           </a>
         </div>
       </footer>

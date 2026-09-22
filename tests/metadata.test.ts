@@ -27,7 +27,7 @@ describe('Next.js production surface', () => {
   })
 
   it('publishes recruiter-facing canonical and social metadata for Selarang Case Manager', () => {
-    expect(metadata.metadataBase?.toString()).toBe('https://john-tan-presentation.vercel.app/')
+    expect(metadata.metadataBase?.toString()).toBe('https://john-tan-profile.vercel.app/')
     expect(metadata.title).toMatchObject({
       default: 'John Tan | Selarang Halfway House Case Manager',
       template: '%s | John Tan',
@@ -47,11 +47,11 @@ describe('Next.js production surface', () => {
   it('allows indexing and exposes the one canonical profile URL', () => {
     expect(robots()).toEqual({
       rules: { userAgent: '*', allow: '/' },
-      sitemap: 'https://john-tan-presentation.vercel.app/sitemap.xml',
+      sitemap: 'https://john-tan-profile.vercel.app/sitemap.xml',
     })
     expect(sitemap()).toEqual([
       {
-        url: 'https://john-tan-presentation.vercel.app',
+        url: 'https://john-tan-profile.vercel.app',
         lastModified: '2026-08-07',
         changeFrequency: 'monthly',
         priority: 1,
