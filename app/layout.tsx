@@ -1,51 +1,43 @@
 import type { Metadata, Viewport } from 'next'
-import { Edu_QLD_Beginner, Urbanist } from 'next/font/google'
+import { Newsreader, Public_Sans } from 'next/font/google'
 import type { ReactNode } from 'react'
 import './globals.css'
 
 const siteUrl = 'https://john-tan-profile.vercel.app'
 
-const urbanist = Urbanist({
+const serif = Newsreader({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-urbanist',
+  variable: '--font-serif',
 })
 
-const humanAccent = Edu_QLD_Beginner({
+const sans = Public_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-human-accent',
+  variable: '--font-sans',
 })
+
+const title = 'John Tan | SUSS Social Work Practicum Candidate'
+const description =
+  'John Tan’s practicum profile for SUSS SWK512 Social Work Practicum and Field Seminar: learning objectives for six competencies, work assignments, a 400-hour schedule, evaluation and supervision plans.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: 'John Tan | Selarang Halfway House Case Manager',
-    template: '%s | John Tan',
-  },
-  description:
-    'John Tan’s professional profile and case management portfolio for the Case Manager position at Selarang Halfway House (Yellow Ribbon Industries / Yellow Ribbon Singapore). Currently pursuing Graduate Diploma in Social Work at SUSS.',
+  title: { default: title, template: '%s | John Tan' },
+  description,
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'John Tan | Selarang Halfway House Case Manager',
-    description:
-      'Grounded social work practice (SUSS), active community casework, and executive operating depth dedicated to the rehabilitation and reintegration of Selarang Halfway House residents.',
-    siteName: 'John Tan — Selarang Halfway House Case Manager Profile',
-    images: [
-      {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: 'John Tan Selarang Halfway House Case Manager Application Profile',
-      },
-    ],
+    title,
+    description,
+    siteName: 'John Tan, social work practicum profile',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'John Tan, SUSS social work practicum candidate' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'John Tan | Selarang Halfway House Case Manager',
-    description: 'Guiding Reintegration with Empathy, Structure, and Purpose.',
+    title,
+    description: 'A 400-hour practicum, planned so that every hour teaches something.',
     images: ['/opengraph-image'],
   },
 }
@@ -53,12 +45,12 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#F59E0B',
+  themeColor: '#0F2A47',
 }
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${urbanist.variable} ${humanAccent.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>{children}</body>
     </html>
   )

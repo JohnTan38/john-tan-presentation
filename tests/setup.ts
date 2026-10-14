@@ -3,8 +3,8 @@ import { cleanup } from '@testing-library/react'
 import { afterEach, vi } from 'vitest'
 
 vi.mock('next/font/google', () => ({
-  Urbanist: () => ({ className: 'font-urbanist', variable: 'font-urbanist-variable' }),
-  Edu_QLD_Beginner: () => ({ className: 'font-edu', variable: 'font-edu-variable' }),
+  Newsreader: () => ({ className: 'font-serif', variable: 'font-serif-variable' }),
+  Public_Sans: () => ({ className: 'font-sans', variable: 'font-sans-variable' }),
 }))
 
 class IntersectionObserverMock implements IntersectionObserver {

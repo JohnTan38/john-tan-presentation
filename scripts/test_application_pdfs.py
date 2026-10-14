@@ -3,64 +3,52 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
-
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = ROOT / "public" / "docs"
+RESUME = ROOT / "public" / "docs" / "John_Tan_Resume_SWK512_Practicum.pdf"
 
 
-def extract(name: str) -> str:
-    path = PUBLIC / name
-    if not path.exists():
-        raise AssertionError(f"Missing generated PDF: {path}")
-    return "\n".join(page.extract_text() or "" for page in PdfReader(path).pages)
+def text() -> str:
+    if not RESUME.exists():
+        raise AssertionError(f"Missing generated PDF: {RESUME}. Run python scripts/build_practicum_resume.py")
+    return "\n".join(page.extract_text() or "" for page in PdfReader(RESUME).pages)
 
 
-def extract_links(name: str) -> list[str]:
-    path = PUBLIC / name
-    if not path.exists():
-        raise AssertionError(f"Missing generated PDF: {path}")
-    links = []
-    for page in PdfReader(path).pages:
-        for annotation_ref in page.get("/Annots", []):
-            annotation = annotation_ref.get_object()
-            action = annotation.get("/A")
+def links() -> list[str]:
+    found = []
+    for page in PdfReader(RESUME).pages:
+        for ref in page.get("/Annots", []):
+            action = ref.get_object().get("/A")
             if action and action.get("/URI"):
-                links.append(str(action["/URI"]))
-    return links
+                found.append(str(action["/URI"]))
+    return found
 
 
-class ApplicationPdfContract(unittest.TestCase):
-    def test_resume_contains_selarang_case_manager_and_suss_credentials(self):
-        text = extract("John_Tan_Resume_Case_Manager_Selarang_Halfway_House.pdf")
+class PracticumResumeContract(unittest.TestCase):
+    def test_targets_swk512_and_suss(self):
+        content = text()
         for expected in (
-            "CASE MANAGER",
-            "SELARANG HALFWAY HOUSE",
+            "SWK512",
             "Graduate Diploma in Social Work",
             "Singapore University of Social Sciences (SUSS)",
-            "Currently enrolled",
-            "Programme Associate",
-            "Yellow Ribbon",
+            "Practicum learning objectives",
+            "Supervision commitment",
+            "400",
         ):
-            self.assertIn(expected, text)
+            self.assertIn(expected, content)
 
-    def test_resume_links_to_deployed_profile(self):
-        name = "John_Tan_Resume_Case_Manager_Selarang_Halfway_House.pdf"
-        text = extract(name)
-        self.assertIn("john-tan-profile.vercel.app", text)
-        self.assertIn("https://john-tan-profile.vercel.app", extract_links(name))
+    def test_lists_all_six_competencies(self):
+        content = text()
+        for expected in ("Ethical and professional", "client systems", "service delivery", "Evaluating practice", "research", "Policy practice"):
+            self.assertIn(expected, content)
 
-    def test_cover_letter_contains_selarang_halfway_house_and_social_work_focus(self):
-        text = extract("John_Tan_Cover_Letter_Case_Manager_Selarang_Halfway_House.pdf")
-        for expected in (
-            "Case Manager",
-            "Selarang Halfway House",
-            "Yellow Ribbon Industries",
-            "Graduate Diploma in Social Work",
-            "Singapore University of Social Sciences (SUSS)",
-            "Programme Associate",
-            "Community-Based Programme",
-        ):
-            self.assertIn(expected, text)
+    def test_drops_unsupported_job_application_claims(self):
+        content = text()
+        for removed in ("SPS", "Selarang", "Yellow Ribbon", "zero log backlog", "six years", "CBP"):
+            self.assertNotIn(removed, content)
+
+    def test_is_two_pages_and_links_to_profile(self):
+        self.assertEqual(len(PdfReader(RESUME).pages), 2)
+        self.assertIn("https://john-tan-profile.vercel.app", links())
 
 
 if __name__ == "__main__":

@@ -4,40 +4,24 @@ import { resolve } from 'node:path'
 
 const styles = readFileSync(resolve(process.cwd(), 'app/globals.css'), 'utf8')
 
-describe('Selarang Halfway House profile visual contract', () => {
-  it('uses the Yellow Ribbon Singapore corporate palette, fonts, and glassmorphism tokens', () => {
-    for (const token of [
-      '--yr-gold: #f59e0b',
-      '--yr-gold-dark: #b45309',
-      '--slate-900: #0f172a',
-      '--emerald-600: #059669',
-      '--glass-bg:',
-      '--glass-border:',
-      '--glass-shadow:',
-    ]) {
+describe('visual contract', () => {
+  it('uses the harbour navy palette and the two typefaces', () => {
+    for (const token of ['--navy-800: #0f2a47', '--paper: #f4f6f3', '--teal: #2e7a73', '--marigold: #e0a23a']) {
       expect(styles.toLowerCase()).toContain(token)
     }
-
-    expect(styles).toContain('var(--font-urbanist)')
-    expect(styles).toContain('var(--font-human-accent)')
+    expect(styles).toContain('var(--font-serif)')
+    expect(styles).toContain('var(--font-sans)')
   })
 
-  it('defines the distinctive hero, dossier, alignment matrix, and vignette layouts', () => {
-    expect(styles).toMatch(/\.application-dossier\s*\{[\s\S]*border-radius:/)
-    expect(styles).toMatch(/\.alignment-card\s*\{[\s\S]*padding:/)
-    expect(styles).toMatch(/\.case-pathway\s*\{[\s\S]*grid-template-columns:/)
-    expect(styles).toMatch(/\.vignette-card\s*\{[\s\S]*padding:/)
-    expect(styles).toMatch(/\.hero\s*\{[^}]*background:\s*linear-gradient/)
-    expect(styles).toMatch(/\.section--alignment\s*\{[^}]*background:\s*linear-gradient/)
-    expect(styles).toMatch(/\.section--pathway\s*\{[^}]*background:\s*linear-gradient/)
-    expect(styles).toMatch(/\.contact\s*\{[^}]*background:\s*linear-gradient/)
+  it('lays out the 40-week hours grid', () => {
+    expect(styles).toMatch(/\.hours__grid\s*\{[^}]*repeat\(40/)
+    expect(styles).toMatch(/\.hours__week\s*\{[^}]*repeat\(10/)
   })
 
-  it('includes keyboard, responsive, and reduced-motion safeguards', () => {
+  it('includes keyboard, responsive and reduced-motion safeguards', () => {
     expect(styles).toMatch(/:focus-visible[\s\S]*outline:/)
     expect(styles).toContain('@media (max-width: 960px)')
     expect(styles).toContain('@media (max-width: 720px)')
-    expect(styles).toMatch(/@media \(prefers-reduced-motion: reduce\)[\s\S]*scroll-behavior:\s*auto/)
-    expect(styles).toMatch(/prefers-reduced-motion:[\s\S]*animation-duration:\s*0\.01ms/)
+    expect(styles).toMatch(/prefers-reduced-motion: reduce[\s\S]*animation-duration:\s*0\.01ms/)
   })
 })

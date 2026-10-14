@@ -1,5 +1,5 @@
 {
-  "name": "john-tan-selarang-halfway-house-case-manager-profile",
+  "name": "john-tan-suss-practicum-profile",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -13,7 +13,8 @@
     "test:run": "vitest run",
     "test:pdf": "python scripts/test_application_pdfs.py",
     "test:e2e": "playwright test",
-    "check": "npm run test:run && npm run test:pdf && npm run typecheck && npm run lint && npm run build && npm run test:e2e"
+    "check": "npm run test:run && npm run test:pdf && npm run typecheck && npm run lint && npm run build && npm run test:e2e",
+    "build:pdf": "python scripts/build_practicum_resume.py"
   },
   "dependencies": {
     "motion": "^12.40.0",

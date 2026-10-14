@@ -11,7 +11,7 @@ describe('Next.js production surface', () => {
   it('runs development and production through Next.js with one complete quality gate', () => {
     const packageJson = JSON.parse(packageJsonSource)
 
-    expect(packageJson.name).toBe('john-tan-selarang-halfway-house-case-manager-profile')
+    expect(packageJson.name).toBe('john-tan-suss-practicum-profile')
     expect(packageJson.scripts).toMatchObject({
       dev: 'next dev',
       build: 'next build',
@@ -26,22 +26,22 @@ describe('Next.js production surface', () => {
     })
   })
 
-  it('publishes recruiter-facing canonical and social metadata for Selarang Case Manager', () => {
+  it('publishes canonical and social metadata for the SWK512 practicum', () => {
     expect(metadata.metadataBase?.toString()).toBe('https://john-tan-profile.vercel.app/')
     expect(metadata.title).toMatchObject({
-      default: 'John Tan | Selarang Halfway House Case Manager',
+      default: 'John Tan | SUSS Social Work Practicum Candidate',
       template: '%s | John Tan',
     })
-    expect(metadata.description).toContain('Case Manager')
-    expect(metadata.description).toContain('Selarang Halfway House')
+    expect(metadata.description).toContain('SWK512')
+    expect(metadata.description).toContain('400-hour')
     expect(metadata.alternates).toMatchObject({ canonical: '/' })
     expect(metadata.openGraph).toMatchObject({
       type: 'website',
       url: '/',
-      title: 'John Tan | Selarang Halfway House Case Manager',
+      title: 'John Tan | SUSS Social Work Practicum Candidate',
     })
     expect(metadata.twitter).toMatchObject({ card: 'summary_large_image' })
-    expect(viewport).toMatchObject({ themeColor: '#F59E0B' })
+    expect(viewport).toMatchObject({ themeColor: '#0F2A47' })
   })
 
   it('allows indexing and exposes the one canonical profile URL', () => {
@@ -52,7 +52,7 @@ describe('Next.js production surface', () => {
     expect(sitemap()).toEqual([
       {
         url: 'https://john-tan-profile.vercel.app',
-        lastModified: '2026-08-07',
+        lastModified: '2026-10-14',
         changeFrequency: 'monthly',
         priority: 1,
       },

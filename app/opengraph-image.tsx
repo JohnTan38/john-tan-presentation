@@ -1,10 +1,15 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'John Tan — Assistant Program Facilitator application profile for 365CPS'
+export const alt = 'John Tan, SUSS social work practicum candidate'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
+const phaseColours = ['#5E7FA3', '#2E7A73', '#E0A23A', '#C9D4DE']
+const phaseWeeks = [8, 12, 13, 7]
+
 export default function OpenGraphImage() {
+  const weeks = phaseWeeks.flatMap((count, phase) => Array.from({ length: count }, () => phaseColours[phase]))
+
   return new ImageResponse(
     (
       <div
@@ -15,22 +20,21 @@ export default function OpenGraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: 72,
-          background: '#F9F3E4',
-          color: '#0C111D',
-          fontFamily: 'Arial, sans-serif',
+          background: '#0F2A47',
+          color: '#F4F6F3',
+          fontFamily: 'Georgia, serif',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 18, fontSize: 28, color: '#B20411' }}>
-          <span style={{ width: 54, height: 10, borderRadius: 999, background: '#B20411' }} />
-          Application profile · 365CPS
+        <div style={{ display: 'flex', fontSize: 28, color: '#B9C7D6', fontFamily: 'Arial, sans-serif' }}>
+          John Tan, practicum candidate for SUSS SWK512
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 26 }}>
-          <div style={{ fontSize: 84, lineHeight: 0.98, fontWeight: 700, letterSpacing: '-4px', maxWidth: 980 }}>
-            Care that listens, connects, and follows through.
-          </div>
-          <div style={{ display: 'flex', fontSize: 30, color: '#464659' }}>
-            John Tan · Assistant Program Facilitator
-          </div>
+        <div style={{ display: 'flex', fontSize: 74, lineHeight: 1.04, maxWidth: 1000 }}>
+          A 400-hour practicum, planned so that every hour teaches something.
+        </div>
+        <div style={{ display: 'flex', gap: 7 }}>
+          {weeks.map((colour, index) => (
+            <div key={index} style={{ width: 18, height: 56, borderRadius: 4, background: colour }} />
+          ))}
         </div>
       </div>
     ),
