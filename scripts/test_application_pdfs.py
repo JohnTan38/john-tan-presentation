@@ -51,5 +51,11 @@ class PracticumResumeContract(unittest.TestCase):
         self.assertIn("https://john-tan-profile.vercel.app", links())
 
 
+    def test_page_one_has_profile_photo(self):
+        first = PdfReader(RESUME).pages[0]
+        self.assertGreaterEqual(len(first.images), 1)
+        self.assertEqual(len(PdfReader(RESUME).pages[1].images), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

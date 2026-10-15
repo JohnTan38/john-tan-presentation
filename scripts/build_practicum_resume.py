@@ -17,6 +17,7 @@ OUTPUT = ROOT / "output" / "pdf"
 PUBLIC = ROOT / "public" / "docs"
 NAME = "John_Tan_Resume_SWK512_Practicum.pdf"
 SITE = "https://john-tan-profile.vercel.app"
+PHOTO = ROOT / "scripts" / "assets" / "john-tan-photo.jpg"
 
 NAVY = HexColor("#0F2A47")
 NAVY_DEEP = HexColor("#0B1F36")
@@ -39,16 +40,30 @@ def first_page(canvas, doc):
     canvas.saveState()
     canvas.setFillColor(NAVY)
     canvas.rect(0, PAGE_H - BAND, PAGE_W, BAND, stroke=0, fill=1)
-    # 25 week bars: the practicum hours motif from the profile site
+    # Profile photo, framed on the right of the header band
+    photo_w, photo_h = 30 * mm, 35 * mm
+    photo_x = PAGE_W - MARGIN - photo_w
+    photo_y = PAGE_H - BAND + (BAND - photo_h) / 2
+    canvas.setFillColor(MARIGOLD)
+    canvas.roundRect(photo_x - 0.8 * mm, photo_y - 0.8 * mm, photo_w + 1.6 * mm, photo_h + 1.6 * mm, 2.2 * mm, stroke=0, fill=1)
+    clip = canvas.beginPath()
+    clip.roundRect(photo_x, photo_y, photo_w, photo_h, 1.8 * mm)
+    canvas.saveState()
+    canvas.clipPath(clip, stroke=0, fill=0)
+    canvas.drawImage(str(PHOTO), photo_x, photo_y, photo_w, photo_h)
+    canvas.restoreState()
+
+    # 40 week bars: the practicum hours motif from the profile site
     colours = [HexColor("#6F90B5")] * 8 + [HexColor("#3F9A90")] * 12 + [MARIGOLD] * 13 + [HexColor("#C9D4DE")] * 7
-    bar_w, gap = 1.45 * mm, 0.6 * mm
-    x0 = PAGE_W - MARGIN - 40 * bar_w - 39 * gap
+    bar_w, gap = 0.9 * mm, 0.36 * mm
+    bars_right = photo_x - 6 * mm
+    x0 = bars_right - 40 * bar_w - 39 * gap
     for i, colour in enumerate(colours):
         canvas.setFillColor(colour)
-        canvas.roundRect(x0 + i * (bar_w + gap), PAGE_H - 29 * mm, bar_w, 12 * mm, 0.5 * mm, stroke=0, fill=1)
+        canvas.roundRect(x0 + i * (bar_w + gap), PAGE_H - 24 * mm, bar_w, 12 * mm, 0.35 * mm, stroke=0, fill=1)
     canvas.setFont("Helvetica", 7.2)
     canvas.setFillColor(NAVY_SOFT)
-    canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 32.5 * mm, "400 practicum hours, 11 Jan to 15 Oct 2027")
+    canvas.drawRightString(bars_right, PAGE_H - 27.6 * mm, "400 practicum hours, 11 Jan to 15 Oct 2027")
 
     canvas.setFillColor(WHITE)
     canvas.setFont("Times-Roman", 30)
